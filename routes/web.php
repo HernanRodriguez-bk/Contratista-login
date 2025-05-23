@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\TareaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +20,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [TareaController::class, 'index']);
+Route::post('/tareas', [TareaController::class, 'store']);
+Route::get('/tareas/{id}/edit', [TareaController::class, 'edit']);
+Route::put('/tareas/{id}', [TareaController::class, 'update']);
+Route::delete('/tareas/{id}', [TareaController::class, 'destroy']);
